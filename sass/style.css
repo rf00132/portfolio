@@ -17,6 +17,7 @@ body {
 
 #main {
   width: 100vw;
+  min-height: 100vh;
 }
 
 a {
@@ -26,7 +27,7 @@ a {
 }
 
 a:hover {
-  color: olivedrab;
+  color: forestgreen;
   text-decoration: underline;
 }
 
@@ -118,23 +119,37 @@ a:hover {
   margin: 0 auto;
 }
 
+.social-icons a:first-child {
+  color: #554488;
+}
+
+.social-icons a:last-child {
+  color: #c9510c;
+}
+
+.social-icons a:nth-child(2) {
+  color: #0077b5;
+}
+
 .social-icons a {
-  color: olive;
   padding: 0 10px;
 }
 
 .social-icons i:hover {
-  color: olivedrab;
+  color: forestgreen;
 }
 
 .mobile-menu-button {
   position: absolute;
   z-index: 3;
-  left: 10px;
-  top: 0;
+  left: 5px;
+  top: 3px;
   font-size: 32px;
   color: white;
   cursor: pointer;
+  background-color: indigo;
+  padding: 0 12px;
+  border-radius: 5px;
 }
 
 .hero-banner {
@@ -229,7 +244,7 @@ a:hover {
 
 .about-me-img {
   border-radius: 50%;
-  height: 256px;
+  height: 128px;
 }
 
 .link {
@@ -300,6 +315,9 @@ a:hover {
     width: calc(100vw - 190px);
     margin-left: 190px;
   }
+  .about-me-img {
+    height: 256px;
+  }
 }
 
 @media (min-width: 992px) {
@@ -307,7 +325,10 @@ a:hover {
     width: calc(942px - 190px);
   }
   .project-card {
-    width: calc((942px - 190px) / 3 - 20px);
+    width: calc((942px - 190px) / 2 - 20px);
+  }
+  .project-thumbnail {
+    height: 230px;
   }
   .about-me-container {
     width: calc(942px - 190px);
@@ -320,10 +341,10 @@ a:hover {
     width: calc(1150px - 190px);
   }
   .project-card {
-    width: calc((1150px - 190px) / 3 - 20px);
+    width: calc((1150px - 190px) / 2 - 20px);
   }
   .project-thumbnail {
-    height: 200px;
+    height: 300px;
   }
 }
 /*# sourceMappingURL=style.css.map */
