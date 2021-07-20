@@ -1,0 +1,354 @@
+$main-colour: honeydew;
+$accent-colour: olive;
+$secondary-accent-colour: olivedrab;
+$sidemenu-width: 190px;
+
+*{
+    font-family: Poppins, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body{
+    color: $accent-colour;
+    
+    margin: 0;
+    background-color: $main-colour;
+}
+
+#container{
+    display: flex;
+}
+
+#main{
+    width: 100vw;
+}
+
+a{
+    color: $accent-colour;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover{
+    color: $secondary-accent-colour;
+    text-decoration: underline;
+}
+
+.text-shadow{
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.no-bg-menu-btn{
+    color: $accent-colour;
+}
+
+.form-input{
+    padding: 10px 10px;
+    margin: 5px 0;
+    background-color: lightgrey;
+    border-color:transparent;
+    border-radius: 5px;
+}
+
+.form-input:focus{
+    border: 1px solid $accent-colour;
+}
+
+.info-container{
+    display: none;
+}
+
+//delete later
+
+.coming-soon{
+    text-align: center;
+}
+
+// SideMenu Styles
+
+#sidemenu{
+    display: none;
+    flex-direction: column;
+    min-width: $sidemenu-width;
+    a:hover{
+        text-decoration: underline;
+    }
+    height: 100vh;
+    position:fixed;
+    
+}
+
+.big-initial,
+.main-links,
+.contact-link,
+.social-icons{
+    border-top: 3px solid $accent-colour;
+    text-align: center;
+    padding: 5px;
+}
+
+.big-initial{
+    font-size: 64px; 
+    font-weight: bold;
+    color: $accent-colour;
+    padding: 25px 5px;
+}
+
+.main-links{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    padding: 10px 0;
+    a{
+        padding: 5px 0;
+    }
+}
+
+.social-icons{
+    font-size: 24px;
+    display: flex;
+    div{
+        margin: 0 auto;
+    }
+    padding: 10px;
+    a{
+        color: $accent-colour;
+        padding: 0 10px;
+    }
+
+    i:hover{
+        color: $secondary-accent-colour;
+    }
+    
+}
+
+
+//Home Page Styles
+
+.mobile-menu-button{
+    position: absolute;
+    z-index: 3;
+    left: 10px;
+    top: 0;
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+}
+
+.hero-banner{
+    background-image: url("../img/hero-image.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    height: 100vh;
+    
+}
+
+.banner-text{
+    vertical-align: middle;
+    padding: calc(35vh) 0;
+}
+
+.float-bottom{
+    position: absolute;
+    bottom: 0;
+    width: 100%; 
+}
+
+.container{
+    padding: 15px;
+}
+
+.project-card{
+    padding: 15px 0;
+    :nth-child(n+1){
+        margin: 0;
+    }
+}
+
+.project-thumbnail{
+    width: 100%;
+    transition: .2s;
+    border-radius: 10px;
+}
+
+.project-thumbnail:hover{
+    opacity: 80%;
+}
+
+.btn-project{
+    padding: 3px;
+}
+
+.hl-input{
+    width: calc(((100% - 30px) / 2) - 12.5px);
+}
+
+.fl-input{
+    width: calc(100% - 30px);
+}
+
+.message-input{
+    height: 100px;
+}
+
+.form-btn{
+    padding: 10px 40px;
+    font-weight: bolder;
+    border: 2px solid $accent-colour;
+    border-radius: 5px;
+    background: $main-colour;
+    cursor: pointer;
+    margin: 0 auto;
+    text-align: center;
+    color: $accent-colour;
+}
+
+.form-btn:hover{
+    
+    color: white;
+    background-color: $accent-colour;
+}
+
+.b2t-btn{
+    text-align: center;
+    cursor: pointer;
+}
+
+.contact-form-container{
+    margin: 0 auto;
+    
+}
+
+
+
+//about me page styles
+
+.about-me-container{
+    text-align: center;
+}
+
+.about-me-img{
+    border-radius: 50%;
+    height: 256px;
+}
+
+.link{
+    text-decoration: underline;
+}
+
+//Breakpoints
+
+@media (min-width: 576px){
+
+    .container{
+        width: 530px;
+        margin: 0 auto;
+    }
+
+    .project-card-container,
+    .contact-info-section{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .project-card{
+        width: 240px;
+    }
+    .project-thumbnail{
+        height: 150px;
+    }
+
+}
+
+@media (min-width: 768px){
+    .container{
+        width:calc(718px - #{$sidemenu-width});
+    }
+
+    .project-card{
+        width: calc((718px - #{$sidemenu-width}) / 2 - 20px);
+    }
+
+    .contact-info-section{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .contact-form-container,
+    .info-container{
+        width: calc(90% - 10px);
+    }
+
+    .contact-form-container{
+        padding-top: 54px;
+    }
+
+    //change this when you put in real text
+    .message-input{
+        height: 215px;
+    }
+
+    .mobile-menu-button{
+        display: none;
+    }
+
+    #sidemenu{
+        display:flex;
+    }
+
+    .hero-banner{
+        width: auto;
+    }
+
+    #main{
+        border-left: 3px solid $accent-colour;
+        width: calc(100vw - #{$sidemenu-width});
+        margin-left: $sidemenu-width;
+    }
+
+    
+}
+
+@media (min-width: 992px){
+    //increase container width further
+
+    .container{
+        width:calc(942px - #{$sidemenu-width});
+    }
+
+    //homepage styles
+
+    .project-card{
+        width: calc((942px - #{$sidemenu-width}) / 3 - 20px);
+    }
+
+    
+    
+    //about me styles
+
+    .about-me-container{
+        width: calc(942px - #{$sidemenu-width});
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1200px){
+    //increase container width again
+
+    .container{
+        width:calc(1150px - #{$sidemenu-width});
+    }
+
+    .project-card{
+        
+        width: calc((1150px - #{$sidemenu-width}) / 3 - 20px);
+    }
+
+    .project-thumbnail{
+        height: 200px;
+    }
+}
