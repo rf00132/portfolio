@@ -18,6 +18,7 @@ body {
 #main {
   width: 100vw;
   min-height: 100vh;
+  margin-left: 0;
 }
 
 a {
@@ -171,6 +172,9 @@ a:hover {
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+.float-bottom a {
   color: white;
 }
 
@@ -252,7 +256,7 @@ a:hover {
   text-decoration: underline;
 }
 
-@media (min-width: 576px) {
+@media only screen and (min-width: 576px) {
   .container {
     width: 530px;
     margin: 0 auto;
@@ -276,12 +280,15 @@ a:hover {
   }
 }
 
-@media (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .container {
-    width: calc(718px - 190px);
+    width: 718px;
   }
   .project-card {
-    width: calc((718px - 190px) / 2 - 20px);
+    width: calc(718px / 2 - 20px);
+  }
+  .project-thumbnail {
+    height: 230px;
   }
   .contact-info-section {
     display: -webkit-box;
@@ -300,28 +307,28 @@ a:hover {
   .message-input {
     height: 215px;
   }
-  .mobile-menu-button {
-    display: none;
-  }
-  #sidemenu {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
   .hero-banner {
     width: auto;
-  }
-  #main {
-    border-left: 3px solid olive;
-    width: calc(100vw - 190px);
-    margin-left: 190px;
   }
   .about-me-img {
     height: 256px;
   }
 }
 
-@media (min-width: 992px) {
+@media only screen and (min-width: 992px) {
+  #main {
+    border-left: 3px solid olive;
+    width: calc(100vw - 190px);
+    margin-left: 190px;
+  }
+  #sidemenu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .mobile-menu-button {
+    display: none;
+  }
   .container {
     width: calc(942px - 190px);
   }
@@ -337,7 +344,7 @@ a:hover {
   }
 }
 
-@media (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
   .container {
     width: calc(1150px - 190px);
   }
