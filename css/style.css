@@ -5,13 +5,62 @@
 
 body {
   color: olive;
+  overflow-y: hidden;
   margin: 0;
   background-color: honeydew;
+  height: 100%;
+}
+
+.menu-btn-show {
+  opacity: 1;
+}
+
+.menu-btn-hide {
+  opacity: 0;
+}
+
+.anim {
+  transition: all 0.4s ease-in-out 0.1s;
+}
+
+.hamburger-inner,
+.hamburger-inner::after,
+.hamburger-inner::before,
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::after,
+.hamburger.is-active .hamburger-inner::before {
+  background: white;
+}
+
+#container .sidemenu-hide {
+  margin-left: calc( -1 * 190px);
+}
+#container .sidemenu-show {
+  margin-left: 0;
+}
+#container .cntr-normal {
+  margin-left: 0;
+}
+#container .cntr-move {
+  margin-left: 190px;
+  border-left: 3px solid olive;
+}
+#container .display-sidemenu {
+  display: flex;
+}
+
+#overlay {
+  position: fixed;
+  display: none;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  cursor: pointer;
 }
 
 #container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -19,6 +68,9 @@ body {
   width: 100vw;
   min-height: 100vh;
   margin-left: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100vh;
 }
 
 a {
@@ -56,21 +108,14 @@ a:hover {
   display: none;
 }
 
-.coming-soon {
-  text-align: center;
-}
-
 #sidemenu {
-  display: none;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  display: flex;
+  flex-direction: column;
   min-width: 190px;
+  margin-left: calc( -1 * 190px);
   height: 100vh;
   position: fixed;
 }
-
 #sidemenu a:hover {
   text-decoration: underline;
 }
@@ -92,56 +137,42 @@ a:hover {
 }
 
 .main-links {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-wrap: nowrap;
+  flex-direction: column;
   padding: 10px 0;
 }
-
 .main-links a {
   padding: 5px 0;
 }
 
 .social-icons {
   font-size: 24px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   padding: 10px;
 }
-
 .social-icons div {
   margin: 0 auto;
 }
-
 .social-icons a:first-child {
   color: #554488;
 }
-
 .social-icons a:last-child {
   color: #c9510c;
 }
-
 .social-icons a:nth-child(2) {
   color: #0077b5;
 }
-
 .social-icons a {
   padding: 0 10px;
 }
-
 .social-icons i:hover {
   color: forestgreen;
 }
 
 .mobile-menu-button {
-  position: absolute;
+  position: fixed;
+  margin-left: 0;
   z-index: 3;
   left: 5px;
   top: 3px;
@@ -151,6 +182,11 @@ a:hover {
   background-color: indigo;
   padding: 0 12px;
   border-radius: 5px;
+  transition: opacity 0.3s ease-in-out 0.1s, left 0.4s ease-in-out 0.1s;
+}
+
+.move-menu-btn {
+  left: 193px;
 }
 
 .hero-banner {
@@ -173,7 +209,6 @@ a:hover {
   bottom: 0;
   width: 100%;
 }
-
 .float-bottom a {
   color: white;
 }
@@ -185,15 +220,13 @@ a:hover {
 .project-card {
   padding: 15px 0;
 }
-
 .project-card :nth-child(n+1) {
   margin: 0;
 }
 
 .project-thumbnail {
   width: 100%;
-  -webkit-transition: .2s;
-  transition: .2s;
+  transition: 0.2s;
   border-radius: 10px;
 }
 
@@ -256,103 +289,159 @@ a:hover {
   text-decoration: underline;
 }
 
+#coding-examples .hero-banner {
+  height: 300px;
+}
+#coding-examples .banner-text {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+#coding-examples pre {
+  margin: 0 auto;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.code-title,
+.code-description {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media only screen and (min-width: 576px) {
   .container {
     width: 530px;
     margin: 0 auto;
   }
+
   .project-card-container,
-  .contact-info-section {
-    display: -webkit-box;
-    display: -ms-flexbox;
+.contact-info-section {
     display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
+
   .project-card {
     width: 240px;
   }
+
   .project-thumbnail {
     height: 150px;
   }
-}
 
+  pre,
+.code-description {
+    max-width: 576px;
+  }
+}
 @media only screen and (min-width: 768px) {
   .container {
     width: 718px;
   }
+
   .project-card {
     width: calc(718px / 2 - 20px);
   }
+
   .project-thumbnail {
     height: 230px;
   }
+
   .contact-info-section {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
+
   .contact-form-container,
-  .info-container {
+.info-container {
     width: calc(90% - 10px);
   }
+
   .contact-form-container {
     padding-top: 54px;
   }
+
   .message-input {
     height: 215px;
   }
+
   .hero-banner {
     width: auto;
   }
+
   .about-me-img {
     height: 256px;
   }
 }
-
 @media only screen and (min-width: 992px) {
-  #main {
+  #container #main {
     border-left: 3px solid olive;
     width: calc(100vw - 190px);
     margin-left: 190px;
   }
-  #sidemenu {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+  #container .sidemenu-hide {
+    margin-left: 0;
   }
+
+  #sidemenu {
+    margin-left: 0;
+  }
+
   .mobile-menu-button {
     display: none;
   }
+
   .container {
     width: calc(942px - 190px);
   }
+
   .project-card {
     width: calc((942px - 190px) / 2 - 20px);
   }
+
   .project-thumbnail {
     height: 230px;
   }
+
   .about-me-container {
     width: calc(942px - 190px);
     margin: 0 auto;
   }
-}
 
+  .code-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  #coding-examples pre,
+.code-description {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  pre {
+    width: 400px;
+  }
+
+  .code-description {
+    width: 300px;
+  }
+}
 @media only screen and (min-width: 1200px) {
   .container {
     width: calc(1150px - 190px);
   }
+
   .project-card {
     width: calc((1150px - 190px) / 2 - 20px);
   }
+
   .project-thumbnail {
     height: 300px;
   }
-}
-/*# sourceMappingURL=style.css.map */
+
+  pre {
+    width: 600px;
+  }
+}/*# sourceMappingURL=style.css.map */

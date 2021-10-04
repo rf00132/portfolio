@@ -10,19 +10,84 @@ $sidemenu-width: 190px;
 
 body{
     color: $accent-colour;
-
+    overflow-y: hidden;
     margin: 0;
     background-color: $main-colour;
+    height: 100%;
+}
+//sticky menu button
+
+.menu-btn-show{
+    opacity: 1;
+}
+
+.menu-btn-hide{
+    opacity: 0;
+}
+
+
+//sidemenu functionality
+.anim{
+    transition: all 0.4s ease-in-out 0.1s;
+    
+}
+
+.hamburger-inner,
+.hamburger-inner::after,
+.hamburger-inner::before,
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::after,
+.hamburger.is-active .hamburger-inner::before{
+    background: white;
+}
+
+#container{
+    .sidemenu-hide{
+        margin-left: calc( -1 * #{$sidemenu-width});
+    }
+    
+    .sidemenu-show{
+        
+        margin-left: 0;
+    }
+
+    .cntr-normal{
+        margin-left: 0;
+    }
+    
+    .cntr-move{
+        margin-left: $sidemenu-width;
+        border-left: 3px solid $accent-colour;
+    }
+
+    .display-sidemenu{
+        display: flex;
+    }
+}
+
+#overlay{
+    position: fixed;
+    display: none;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    cursor: pointer;
 }
 
 #container{
     display: flex;
+
 }
 
 #main{
     width: 100vw;
     min-height: 100vh;
     margin-left: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height:100vh;
 }
 
 a{
@@ -60,18 +125,13 @@ a:hover{
     display: none;
 }
 
-//delete later
-
-.coming-soon{
-    text-align: center;
-}
-
 // SideMenu Styles
 
 #sidemenu{
-    display:none;
+    display: flex;
     flex-direction: column;
     min-width: $sidemenu-width;
+    margin-left: calc( -1 * #{$sidemenu-width});
     a:hover{
         text-decoration: underline;
     }
@@ -85,6 +145,7 @@ a:hover{
 .contact-link,
 .social-icons{
     border-top: 3px solid $accent-colour;
+
     text-align: center;
     padding: 5px;
 }
@@ -141,7 +202,8 @@ a:hover{
 //Home Page Styles
 
 .mobile-menu-button{
-    position: absolute;
+    position: fixed;
+    margin-left:0;
     z-index: 3;
     left: 5px;
     top: 3px;
@@ -151,6 +213,13 @@ a:hover{
     background-color: indigo;
     padding: 0 12px;
     border-radius: 5px;
+    transition: opacity 0.3s ease-in-out 0.1s,
+    left 0.4s ease-in-out 0.1s;
+    
+}
+
+.move-menu-btn{
+    left: 193px;
 }
 
 .hero-banner{
@@ -265,6 +334,34 @@ a:hover{
     text-decoration: underline;
 }
 
+//coding examples page styles
+
+#coding-examples{
+    .hero-banner{
+        height: 300px;
+    }
+
+    .banner-text{
+        padding-top: 110px;
+        padding-bottom: 110px;
+    }
+
+    pre{
+        margin: 0 auto;
+        padding: 8px;
+        border-radius: 10px;
+    }
+
+    
+}
+
+.code-title, 
+.code-description{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 //Breakpoints
 
 @media only screen and (min-width: 576px){
@@ -288,7 +385,10 @@ a:hover{
         height: 150px;
     }
 
-    
+    pre,
+    .code-description{
+        max-width: 576px;
+    }
 
 }
 
@@ -337,15 +437,21 @@ a:hover{
 
 @media only screen and (min-width: 992px){
     //increase container width further
+    #container{
+        #main{
+            border-left: 3px solid $accent-colour;
+            width: calc(100vw - #{$sidemenu-width});
+            margin-left: $sidemenu-width;
+        }
 
-    #main{
-        border-left: 3px solid $accent-colour;
-        width: calc(100vw - #{$sidemenu-width});
-        margin-left: $sidemenu-width;
+        .sidemenu-hide{
+            margin-left: 0;
+        }
     }
+    
 
     #sidemenu{
-        display: flex;
+        margin-left: 0;
     }
 
     .mobile-menu-button{
@@ -372,6 +478,25 @@ a:hover{
         width: calc(942px - #{$sidemenu-width});
         margin: 0 auto;
     }
+
+    .code-content{
+        display: flex;
+        justify-content: center;
+    }
+
+    #coding-examples pre,
+    .code-description{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    pre{
+        width: 400px;
+    }
+
+    .code-description{
+        width: 300px;
+    }
 }
 
 @media only screen and (min-width: 1200px){
@@ -388,5 +513,9 @@ a:hover{
 
     .project-thumbnail{
         height: 300px;
+    }
+
+    pre{
+        width: 600px;
     }
 }

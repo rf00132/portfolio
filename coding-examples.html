@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="sass/style.css">
+        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+        <link rel="stylesheet" href="prism/prism.css">
         <script src="https://kit.fontawesome.com/352c99e409.js" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body id="coding-examples">
         <div id="container">
             <nav id="sidemenu">
                 <a href="index.html" class="big-initial">
@@ -35,13 +36,51 @@
                     </div>
                     <div class="hero-banner text-shadow">
                         <div class="banner-text">
-                            <h1>Coming Soon</h1>
+                            <h1>Coding Examples</h1>
                         </div>
-                        
                     </div>
                 </header>
                 <main>
-                    
+                    <div class="code-snippet-container">
+                        <div class="code-snippet">
+                            <h2 class="code-title">SQL Challenge</h2>
+                            <div class="code-content">
+                                <pre><code class="language-sql">
+SELECT mov_title AS "Movie", 
+mov_year AS "Release Year", 
+genres.gen_title AS "Genre", 
+director.dir_fname || ' ' || director.dir_lname AS "Director"
+
+FROM movie
+
+JOIN rating ON rating.mov_id = movie.mov_id
+JOIN movie_genres ON movie_genres.mov_id = movie.mov_id
+JOIN genres ON genres.gen_id = movie_genres.gen_id
+JOIN movie_direction ON movie_direction.mov_id=movie.mov_id
+JOIN director ON director.dir_id=movie_direction.dir_id
+
+WHERE director.dir_fname = 'Danny'
+
+AND movie.mov_time < (
+    SELECT mov_time FROM movie
+    WHERE movie.mov_title = 'Slumdog Millionaire'
+)
+                            </code></pre>
+                            <div class="code-description">
+                                <p>
+                                    The objective of this query was both to challenge myself and consolidate the knowledge I gained after learning SQL.
+                                </p><p>
+                                    The query sorts through a movie database looking for films directed by Danny Boyle that are shorter in runtime than Slumdog Millionare.
+                                </p><p>
+                                    It outputs the film title, release yeasr, genre and director of all films that meet those conditions in that database.
+                                </p>
+                            </div>
+                            </div>
+
+                        </div>
+                    </div>
+                
+                    <script src="prism/prism.js"></script>
                 </main>
                 <footer>
                     <div class="container">
