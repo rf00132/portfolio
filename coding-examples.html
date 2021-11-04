@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>Coding Examples</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="img/AboutMeImage.png">
+        
+        <link rel="stylesheet" href="hamburgers/hamburgers.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
         <link rel="stylesheet" href="prism/prism.css">
@@ -30,54 +36,144 @@
                 </div>
             </nav>
             <div id="main">
+                <div id="overlay"></div>
                 <header>
-                    <div class="mobile-menu-button">
-                        <i class="fas fa-bars"></i>
-                    </div>
+                    <button class="hamburger hamburger--vortex mobile-menu-button" type="button">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                    
                     <div class="hero-banner text-shadow">
                         <div class="banner-text">
                             <h1>Coding Examples</h1>
                         </div>
                     </div>
+                    <script src="js/stickyMenu.js"></script>
+                    <script src="js/sidemenu.js"></script>
                 </header>
                 <main>
                     <div class="code-snippet-container">
                         <div class="code-snippet">
-                            <h2 class="code-title">SQL Challenge</h2>
+                            <h2 class="code-title">Floor Generation for a Text Based Dungeon Crawler</h2>
+                            <div class="code-content">
+                                <pre><code class="language-c#">
+using UnityEngine;
+
+public class World : MonoBehaviour
+{
+    public Room[,] Dungeon { get; set; }
+    public Vector2 Grid;
+    [SerializeField]
+    Player player;
+
+    private void Awake()
+    {
+        Dungeon = new Room[
+            (int)Grid.x, (int)Grid.y
+        ];
+        GenerateFloor();
+    }
+
+    public void GenerateFloor()
+    {
+        //generates room object for each spot 
+        //in the dungeon array
+        for (int x = 0; x < Grid.x; x++)
+        {
+            for (int y = 0; y < Grid.y; y++)
+            {
+        //room constructor decides what kind of
+        //room is created and sets its location 
+                Dungeon[x, y] = new Room {
+                    RoomIndex = 
+                        new Vector2(x, y)
+                };
+                
+            }
+        }
+        CreateExit();
+
+        //generates start location for the 
+        //player on the new floor
+        player.NewFloor();
+    }
+
+    // Picks random room in dungeon and calls a 
+    //method to set it as the exit
+    private void CreateExit()
+    {
+        Vector2 exitLocation = new Vector2(
+                (int)Random.Range(0, Grid.x), 
+                (int)Random.Range(0, Grid.y)
+            );
+        Room exit = Dungeon [
+            (int)exitLocation.x, 
+            (int)exitLocation.y
+        ];
+        exit.SetExit();
+    }
+
+}                                
+                                </code></pre>
+                                <div class="code-description">
+                                    <p>
+                                        This is some c# I wrote while working on a simple text based dungeon crawler.
+                                    </p><p>
+                                        This class gets attatched to an object in the unity editor which manages floor generation for the game.
+                                    </p><p>
+                                        It populates an Array of Rooms for each spot in the floor, picks a random room to be the exit then calls a method on the player to randomly sets it's position on the new floor.
+                                    </p>
+                                    <a href="TextBasedRpg/text-based-rpg.html" target="blank">Click here to try it out</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-snippet">
+                            <h2 class="code-title">SQL Query Challenge</h2>
                             <div class="code-content">
                                 <pre><code class="language-sql">
-SELECT mov_title AS "Movie", 
-mov_year AS "Release Year", 
-genres.gen_title AS "Genre", 
-director.dir_fname || ' ' || director.dir_lname AS "Director"
+SELECT mov_title 
+AS "Movie", 
+mov_year 
+AS "Release Year", 
+genres.gen_title 
+AS "Genre", 
+director.dir_fname || ' ' || director.dir_lname 
+AS "Director"
 
 FROM movie
 
-JOIN rating ON rating.mov_id = movie.mov_id
-JOIN movie_genres ON movie_genres.mov_id = movie.mov_id
-JOIN genres ON genres.gen_id = movie_genres.gen_id
-JOIN movie_direction ON movie_direction.mov_id=movie.mov_id
-JOIN director ON director.dir_id=movie_direction.dir_id
+JOIN rating 
+ON rating.mov_id = movie.mov_id
+JOIN movie_genres 
+ON movie_genres.mov_id = movie.mov_id
+JOIN genres 
+ON genres.gen_id = movie_genres.gen_id
+JOIN movie_direction 
+ON movie_direction.mov_id=movie.mov_id
+JOIN director 
+ON director.dir_id=movie_direction.dir_id
 
 WHERE director.dir_fname = 'Danny'
 
 AND movie.mov_time < (
     SELECT mov_time FROM movie
-    WHERE movie.mov_title = 'Slumdog Millionaire'
+    WHERE movie.mov_title = 
+        'Slumdog Millionaire'
 )
-                            </code></pre>
-                            <div class="code-description">
-                                <p>
-                                    The objective of this query was both to challenge myself and consolidate the knowledge I gained after learning SQL.
-                                </p><p>
-                                    The query sorts through a movie database looking for films directed by Danny Boyle that are shorter in runtime than Slumdog Millionare.
-                                </p><p>
-                                    It outputs the film title, release yeasr, genre and director of all films that meet those conditions in that database.
-                                </p>
-                            </div>
-                            </div>
-
+                                </code></pre>
+                                <div class="code-description">
+                                    <p>
+                                        The objective of this query was both to challenge myself and consolidate the knowledge I gained after learning SQL.
+                                    </p><p>
+                                        The query sorts through a movie database looking for films directed by Danny Boyle that are shorter in runtime than Slumdog Millionare.
+                                    </p><p>
+                                        It outputs the film title, release yeasr, genre and director of all films that meet those conditions in that database.
+                                    </p>
+                                </div>
+                            </div>    
                         </div>
+
                     </div>
                 
                     <script src="prism/prism.js"></script>

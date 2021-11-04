@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>Rupert Foley's Portfolio</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="img/AboutMeImage.png">
+        
         <link rel="stylesheet" href="hamburgers/hamburgers.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
@@ -34,10 +39,6 @@
             <div id="main">
                 <div id="overlay"></div>
                 <header>
-                    <!-- 
-                        add hamburger plugin to menu button
-                    -->
-
                     <button class="hamburger hamburger--vortex mobile-menu-button" type="button">
                         <span class="hamburger-box">
                             <span class="hamburger-inner"></span>
@@ -64,62 +65,83 @@
                     </div>
                 </header>
                 <main>
-                    <div class="container">
+                    <div id="main-content" class="container">
                         <div class="project-card-container" id="portfolio">
                             <div class="project-card">
-                                <a href="#"><img class="project-thumbnail" src="img/project-one-thumbnail.png" alt="Netmatter site recreation thumbnail"></a>
+                                <a href="NetmattersSite/index.html" target="blank"><img class="project-thumbnail" src="img/project-one-thumbnail.png" alt="Netmatter site recreation thumbnail"></a>
                                 <h3>
-                                    Project One
+                                    Netmatters Homepage Recreation
                                 </h3>
-                                <a href="#" class="btn-project">
+                                <a href="NetmattersSite/index.html" target="blank" class="btn-project">
                                     View Project <i class="fas fa-arrow-right"></i>
                                 </a>
+                                <div class="hover-description">
+                                    <div class="box">
+                                        <h3>Site Recreation</h3>
+                                        <p>I reconstructed the netmatters home page using <strong>HTML</strong>, <strong>SCSS</strong> and  <strong>JavaScript</strong>.</p>
+                                        <p>It was the first time I had ever put together a page with so much going on before.</p>
+                                        <p>This was a very beneficial experience for me as I got to experience every part of putting a webpage together.</p>
+                                        <div class="arrow"></div>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="project-card">
+                                <a href="https://www.kongregate.com/games/DeflatedBadger/quest-of-adventures" target="blank"><img class="project-thumbnail" src="img/quest-of-adventures-thumbnail.png" alt="Quest of Adventures thumbnail"></a>
+                                <h3>
+                                    Small ARPG
+                                </h3>
+                                <a href="https://www.kongregate.com/games/DeflatedBadger/quest-of-adventures" target="blank" class="btn-project">
+                                    View Project <i class="fas fa-arrow-right"></i>
+                                </a>
+                                <div class="hover-description">
+                                    <div class="box">
+                                        <h3>Small ARPG</h3>
+                                        <p>I made this for the final part of a <strong>Game Design and Development</strong> course that I took on coursera.</p>
+                                        <p>I used the <strong>Unity Engine</strong> along with the <strong>C#</strong> I had picked up during the course to create this game.</p>
+                                        <p>The project took me about one month and making a game from the ground up in that timeframe was both fun and challenging.</p>
+                                        <div class="arrow"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <a href="TextBasedRpg/text-based-rpg.html" target="blank"><img class="project-thumbnail" src="img/text-based-rpg-thumbnail.png" alt="text based rpg thumbnail"></a>
+                                <h3>
+                                    Dungeon Text Adventure
+                                </h3>
+                                <a href="TextBasedRpg/text-based-rpg.html" target="blank" class="btn-project">
+                                    View Project <i class="fas fa-arrow-right"></i>
+                                </a>
+                                <div class="hover-description">
+                                    <div class="box">
+                                        <h3>Text Based Game</h3>
+                                        <p>This is one I made when I wanted to see if I could make something that randomly generates its map.</p>
+                                        <p>I decided to go with a text only game, again using <strong>Unity</strong> and <strong>C#</strong>, to start out exploring that concept with a simpler idea.</p>
+                                        <p>I have already started working on a more complex random floor generator which I intent to use to make a 2D game and see how that goes</p>
+                                        <div class="arrow"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        <!--
                             <div class="project-card">
                                 <a href="#"><img class="project-thumbnail" src="img/placeholder.jpg" alt="Netmatter site recreation thumbnail"></a>
                                 <h3>
-                                    Project Two
+                                    Project Title
                                 </h3>
                                 <a href="#" class="btn-project">
                                     View Project <i class="fas fa-arrow-right"></i>
                                 </a>
+                                <div class="hover-description">
+                                    <div class="box">
+                                        <h3>Title</h3>
+                                        <p>Description</p>
+                                        <p>Description</p>
+                                        <p>Description</p>
+                                        <div class="arrow"></div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="project-card">
-                                <a href="#"><img class="project-thumbnail" src="img/placeholder.jpg" alt="Netmatter site recreation thumbnail"></a>
-                                <h3>
-                                    Project Three
-                                </h3>
-                                <a href="#" class="btn-project">
-                                    View Project <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                            <div class="project-card">
-                                <a href="#"><img class="project-thumbnail" src="img/placeholder.jpg" alt="Netmatter site recreation thumbnail"></a>
-                                <h3>
-                                    Project Four
-                                </h3>
-                                <a href="#" class="btn-project">
-                                    View Project <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                            <div class="project-card">
-                                <a href="#"><img class="project-thumbnail" src="img/placeholder.jpg" alt="Netmatter site recreation thumbnail"></a>
-                                <h3>
-                                    Project Five
-                                </h3>
-                                <a href="#" class="btn-project">
-                                    View Project <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                            <div class="project-card">
-                                <a href="#"><img class="project-thumbnail" src="img/placeholder.jpg" alt="Netmatter site recreation thumbnail"></a>
-                                <h3>
-                                    Project Six
-                                </h3>
-                                <a href="#" class="btn-project">
-                                    View Project <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
+                        -->
+                         
                         </div>
                         <div class="contact-info-section">
                             <div class="info-container">
@@ -132,14 +154,17 @@
                             <div id="contact" class="contact-form-container">
                                 <h2>Get In Touch</h2>
                                 <form>
-                                    <input class="hl-input form-input" placeholder="First Name*">
-                                    <input class="hl-input form-input" placeholder="Last Name*">
-                                    <input class="fl-input form-input" placeholder="Email Address*">
-                                    <input class="fl-input form-input" placeholder="Subject">
-                                    <textarea class="fl-input message-input form-input" placeholder="Message"></textarea>
-                                    <button class="form-btn">Submit</button>
+                                    <input id="fname-input" class="hl-input form-input" placeholder="First Name*">
+                                    <input id="lname-input" class="hl-input form-input" placeholder="Last Name*">
+                                    <input id="email-input" class="fl-input form-input" placeholder="Email Address*">
+                                    <input id="subject-input" class="fl-input form-input" placeholder="Subject">
+                                    <textarea id="message-input" class="fl-input message-input form-input" placeholder="Message"></textarea>
+                                    <p id="form-error-message"></p>
+                                    <button id="submit-btn" class="form-btn">Submit</button>
+                                    
                                 </form>
                             </div>
+                            <script src="js/formValidation.js"></script>
                         </div>
                         
                     </div>

@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>About Me</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="img/AboutMeImage.png">
+        
+        <link rel="stylesheet" href="hamburgers/hamburgers.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
         <script src="https://kit.fontawesome.com/352c99e409.js" crossorigin="anonymous"></script>
@@ -29,11 +35,16 @@
                 </div>
             </nav>
             <div id="main">
+                <div id="overlay"></div>
                 <header>
-                    <div class="mobile-menu-button">
-                        <i class="fas fa-bars no-bg-menu-btn"></i>
-                    </div>
-                   
+                    <button class="hamburger hamburger--vortex mobile-menu-button" type="button">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+
+                    <script src="js/stickyMenu.js"></script>
+                    <script src="js/sidemenu.js"></script>
                 </header>
                 <main>
                     <div class="container">

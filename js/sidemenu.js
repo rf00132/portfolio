@@ -19,7 +19,6 @@ function ToggleMenu(){
         overlay.style.display = "block";
         menuBtn.classList.toggle("is-active");
         hidden = false;
-
         setTimeout(function(){
             menu.classList.remove("anim");
             cntr.classList.remove("anim");

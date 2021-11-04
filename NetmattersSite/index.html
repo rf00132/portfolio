@@ -792,17 +792,17 @@
                     </div>
                     <div id="newsletter-signup-form">
                         <form>
+                            <div id="form-error-message-container">
+                                <div class="error-message">
+                                    <p>The name field is required.</p>
+                                     <span class="close-error-btn">
+                                         <i class="fas fa-times"></i>
+                                     </span>
+                                </div>
+
+                            </div>
                             <h2>Email Newsletter Sign-Up</h2>
                             <div class="form-inputs">
-                                <div id="form-error-message-container">
-                                    <div class="error-message">
-                                        <p>The ### field is required.</p>
-                                         <span class="close-error-btn">
-                                             <i class="fas fa-times"></i>
-                                         </span>
-                                    </div>
-
-                                </div>
                                 <div>
                                     <label class="newsletter-label" for="name-entry-form">Your Name</label>
                                     <br>
@@ -830,7 +830,8 @@
                                     </span>
                                 </label>
                             </div>
-                            <button type="submit" class="button all-caps btn-hover-black">Subscribe</button>
+                            <button type="submit" class="button all-caps btn-hover-black" id="submit-btn">Subscribe</button>
+                            <script src="src/formValidation.js"></script>
                         </form>
                     </div>
                     

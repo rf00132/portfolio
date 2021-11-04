@@ -4,10 +4,10 @@
 }
 
 body {
-  color: olive;
+  color: #7952B3;
   overflow-y: hidden;
   margin: 0;
-  background-color: honeydew;
+  background-color: #E1E8EB;
   height: 100%;
 }
 
@@ -30,6 +30,16 @@ body {
 .hamburger.is-active .hamburger-inner::after,
 .hamburger.is-active .hamburger-inner::before {
   background: white;
+  border: 1.5px black solid;
+}
+
+.hamburger-inner::after,
+.hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after,
+.hamburger.is-active .hamburger-inner::before {
+  margin-left: -1.5px;
+  margin-top: -1.5px;
+  margin-bottom: -1.5px;
 }
 
 #container .sidemenu-hide {
@@ -43,7 +53,7 @@ body {
 }
 #container .cntr-move {
   margin-left: 190px;
-  border-left: 3px solid olive;
+  border-left: 3px solid #7952B3;
 }
 #container .display-sidemenu {
   display: flex;
@@ -74,13 +84,13 @@ body {
 }
 
 a {
-  color: olive;
+  color: #7952B3;
   text-decoration: none;
   cursor: pointer;
 }
 
 a:hover {
-  color: forestgreen;
+  color: #1C0C5B;
   text-decoration: underline;
 }
 
@@ -89,7 +99,7 @@ a:hover {
 }
 
 .no-bg-menu-btn {
-  color: olive;
+  color: #7952B3;
 }
 
 .form-input {
@@ -101,7 +111,7 @@ a:hover {
 }
 
 .form-input:focus {
-  border: 1px solid olive;
+  border: 1px solid #7952B3;
 }
 
 .info-container {
@@ -124,7 +134,7 @@ a:hover {
 .main-links,
 .contact-link,
 .social-icons {
-  border-top: 3px solid olive;
+  border-top: 3px solid #7952B3;
   text-align: center;
   padding: 5px;
 }
@@ -132,7 +142,7 @@ a:hover {
 .big-initial {
   font-size: 64px;
   font-weight: bold;
-  color: olive;
+  color: #7952B3;
   padding: 25px 5px;
 }
 
@@ -167,7 +177,7 @@ a:hover {
   padding: 0 10px;
 }
 .social-icons i:hover {
-  color: forestgreen;
+  color: #1C0C5B;
 }
 
 .mobile-menu-button {
@@ -179,9 +189,7 @@ a:hover {
   font-size: 32px;
   color: white;
   cursor: pointer;
-  background-color: indigo;
   padding: 0 12px;
-  border-radius: 5px;
   transition: opacity 0.3s ease-in-out 0.1s, left 0.4s ease-in-out 0.1s;
 }
 
@@ -218,7 +226,7 @@ a:hover {
 }
 
 .project-card {
-  padding: 15px 0;
+  padding: 15px 15px;
 }
 .project-card :nth-child(n+1) {
   margin: 0;
@@ -253,18 +261,26 @@ a:hover {
 .form-btn {
   padding: 10px 40px;
   font-weight: bolder;
-  border: 2px solid olive;
+  border: 2px solid #7952B3;
   border-radius: 5px;
-  background: honeydew;
+  background: #E1E8EB;
   cursor: pointer;
   margin: 0 auto;
   text-align: center;
-  color: olive;
+  color: #7952B3;
+}
+
+#form-error-message {
+  color: red;
+}
+
+#message-input {
+  border-width: 2px;
 }
 
 .form-btn:hover {
   color: white;
-  background-color: olive;
+  background-color: #7952B3;
 }
 
 .b2t-btn {
@@ -274,6 +290,63 @@ a:hover {
 
 .contact-form-container {
   margin: 0 auto;
+}
+
+.project-card {
+  position: relative;
+}
+.project-card .hover-description p {
+  margin-bottom: 5px;
+}
+
+.project-card:hover .hover-description {
+  display: flex;
+}
+
+.hover-description {
+  background-color: #1C0C5B;
+  color: #E1E8EB;
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px;
+  min-width: 100px;
+  max-width: 330px;
+  margin: 0 auto 50px auto;
+}
+.hover-description h3 {
+  font-weight: normal;
+}
+.hover-description h3:after {
+  content: " ";
+  width: 28px;
+  height: 4px;
+  background-color: #1C0C5B;
+  display: block;
+  margin: 8px auto 8px auto;
+}
+.hover-description p {
+  font-size: 13px;
+}
+
+.arrow {
+  position: absolute;
+  bottom: -40px;
+  left: 37%;
+  margin-left: -36px;
+}
+
+.arrow:after {
+  content: "";
+  margin: auto;
+  display: inline-block;
+  border-color: #1C0C5B transparent transparent;
+  border-style: solid;
+  border-width: 35px 36px 0;
 }
 
 .about-me-container {
@@ -300,6 +373,8 @@ a:hover {
   margin: 0 auto;
   padding: 8px;
   border-radius: 10px;
+  max-width: calc(100vw - 100px);
+  font-size: 10px;
 }
 
 .code-title,
@@ -309,43 +384,56 @@ a:hover {
   margin-right: auto;
 }
 
-@media only screen and (min-width: 576px) {
+.code-description a {
+  color: #1C0C5B;
+}
+.code-description a:hover {
+  color: #7952B3;
+}
+
+#unityContainer {
+  width: 90vw;
+  height: 51vw;
+}
+
+@media only screen and (min-width: 380px) {
   .container {
-    width: 530px;
+    width: calc(380px - 30px);
     margin: 0 auto;
+  }
+
+  .project-card {
+    padding: 15px 0;
+    width: calc(380px - 90px);
   }
 
   .project-card-container,
 .contact-info-section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .project-card {
-    width: 240px;
+    justify-content: space-around;
   }
 
   .project-thumbnail {
-    height: 150px;
+    height: 180px;
   }
 
-  pre,
-.code-description {
-    max-width: 576px;
+  #coding-examples pre {
+    font-size: 12px;
+    width: calc(380px - 70px);
   }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 650px) {
   .container {
-    width: 718px;
+    width: calc(650px - 50px);
   }
 
   .project-card {
-    width: calc(718px / 2 - 20px);
+    width: calc((650px - 50px) / 2 - 60px);
   }
 
   .project-thumbnail {
-    height: 230px;
+    height: 160px;
   }
 
   .contact-info-section {
@@ -373,10 +461,32 @@ a:hover {
   .about-me-img {
     height: 256px;
   }
+
+  #fname-input,
+#lname-input {
+    width: calc(650px / 2 - 95px);
+  }
+
+  .code-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  #coding-examples pre {
+    margin: 0 15px;
+    font-size: 16px;
+    width: 420px;
+    overflow: visible;
+  }
+
+  .code-description {
+    font-size: 20px;
+    max-width: 420px;
+  }
 }
 @media only screen and (min-width: 992px) {
   #container #main {
-    border-left: 3px solid olive;
+    border-left: 3px solid #7952B3;
     width: calc(100vw - 190px);
     margin-left: 190px;
   }
@@ -392,20 +502,20 @@ a:hover {
     display: none;
   }
 
-  .container {
-    width: calc(942px - 190px);
+  .container,
+.about-me-container {
+    width: calc(992px - (50px + 190px));
   }
 
   .project-card {
-    width: calc((942px - 190px) / 2 - 20px);
+    width: calc((992px - (50px + 190px)) / 2 - 40px);
   }
 
   .project-thumbnail {
-    height: 230px;
+    height: 200px;
   }
 
   .about-me-container {
-    width: calc(942px - 190px);
     margin: 0 auto;
   }
 
@@ -424,24 +534,97 @@ a:hover {
     width: 400px;
   }
 
+  #fname-input,
+#lname-input {
+    width: calc((992px - 190px) / 2 - 97px);
+  }
+
   .code-description {
-    width: 300px;
+    max-width: 520px;
   }
 }
-@media only screen and (min-width: 1200px) {
-  .container {
-    width: calc(1150px - 190px);
+@media only screen and (min-width: 1300px) {
+  #main-content {
+    display: flex;
+    flex-wrap: nowrap;
   }
 
   .project-card {
-    width: calc((1150px - 190px) / 2 - 20px);
+    width: calc((1300px - (50px + 190px)) / 3 - 50px);
+  }
+
+  .container {
+    width: calc(1300px - 190px - 50px);
+  }
+
+  .project-card-container {
+    margin-top: 65px;
+    width: calc(2 * (1300px - 190px) / 3 - 50px);
+  }
+
+  .contact-info-section {
+    width: calc((1300px - 190px) / 3 - 50px);
+  }
+
+  #fname-input,
+#lname-input {
+    width: calc((1300px - 190px) / 4 - 168px);
+  }
+
+  #coding-examples pre {
+    font-size: 18px;
+    width: 520px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .container {
+    width: calc(1600px - 190px - 50px);
+  }
+
+  .project-card {
+    width: calc((1600px - 190px) / 3 - 100px);
   }
 
   .project-thumbnail {
-    height: 300px;
+    height: 230px;
   }
 
   pre {
     width: 600px;
+  }
+
+  #main-content {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .project-card-container {
+    margin-top: 65px;
+    width: calc(2 * (1600px - 190px) / 3 - 50px);
+  }
+
+  .contact-info-section {
+    width: calc((1600px - 190px) / 3 - 50px);
+  }
+
+  #fname-input,
+#lname-input {
+    width: calc((1600px - 190px) / 4 - 205px);
+  }
+
+  #email-input {
+    width: calc((1600px - 190px) / 2 - 370px);
+  }
+
+  #fname-input, #lname-input,
+#email-input, #subject-input,
+#message-input, #submit-btn {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  #coding-examples pre {
+    font-size: 20px;
+    width: 550px;
   }
 }/*# sourceMappingURL=style.css.map */

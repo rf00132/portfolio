@@ -1677,6 +1677,28 @@ a, a:visited {
   background: black;
 }
 
+#form-error-message-container {
+  margin: 0;
+}
+#form-error-message-container .error-message {
+  color: #a94442;
+  background: #f2dede;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+#form-error-message-container .close-error-btn {
+  padding-top: 3px;
+  padding-right: 5px;
+  color: black;
+  opacity: 0.2;
+}
+#form-error-message-container .close-error-btn:hover {
+  opacity: 0.6;
+}
+
 .check-cntr {
   display: inline-block;
   cursor: pointer;
