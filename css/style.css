@@ -9,6 +9,17 @@ body {
   margin: 0;
   background-color: #E1E8EB;
   height: 100%;
+  text-align: center;
+}
+body p, body li {
+  text-align: center;
+}
+
+#top {
+  position: absolute;
+  top: 1px;
+  width: 1px;
+  height: 1px;
 }
 
 .menu-btn-show {
@@ -121,6 +132,7 @@ a:hover {
 #sidemenu {
   display: flex;
   flex-direction: column;
+  text-align: center;
   min-width: 190px;
   margin-left: calc( -1 * 190px);
   height: 100vh;
@@ -135,7 +147,6 @@ a:hover {
 .contact-link,
 .social-icons {
   border-top: 3px solid #7952B3;
-  text-align: center;
   padding: 5px;
 }
 
@@ -204,11 +215,20 @@ a:hover {
   color: white;
   text-align: center;
   position: relative;
+  height: 300px;
+}
+
+header .hero-banner {
   height: 100vh;
 }
 
 .banner-text {
+  padding-top: 110px;
+  padding-bottom: 110px;
   vertical-align: middle;
+}
+
+header .banner-text {
   padding: calc(35vh) 0;
 }
 
@@ -308,14 +328,14 @@ a:hover {
   color: #E1E8EB;
   display: none;
   position: absolute;
-  bottom: 100%;
+  top: 100%;
   left: 0;
   right: 0;
-  text-align: center;
   border-radius: 10px;
   padding: 20px;
   min-width: 100px;
-  max-width: 330px;
+  max-width: 380px;
+  z-index: 10;
   margin: 0 auto 50px auto;
 }
 .hover-description h3 {
@@ -335,8 +355,8 @@ a:hover {
 
 .arrow {
   position: absolute;
-  bottom: -40px;
-  left: 37%;
+  top: -35px;
+  left: 41%;
   margin-left: -36px;
 }
 
@@ -344,13 +364,13 @@ a:hover {
   content: "";
   margin: auto;
   display: inline-block;
-  border-color: #1C0C5B transparent transparent;
+  border-color: transparent transparent #1C0C5B;
   border-style: solid;
-  border-width: 35px 36px 0;
+  border-width: 0 36px 36px;
 }
 
 .about-me-container {
-  text-align: center;
+  width: 100%;
 }
 
 .about-me-img {
@@ -362,24 +382,16 @@ a:hover {
   text-decoration: underline;
 }
 
-#coding-examples .hero-banner {
-  height: 300px;
-}
-#coding-examples .banner-text {
-  padding-top: 110px;
-  padding-bottom: 110px;
-}
 #coding-examples pre {
   margin: 0 auto;
   padding: 8px;
   border-radius: 10px;
   max-width: calc(100vw - 100px);
-  font-size: 10px;
+  font-size: 8px;
 }
 
 .code-title,
 .code-description {
-  text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
@@ -391,11 +403,20 @@ a:hover {
   color: #7952B3;
 }
 
+#scs li {
+  list-style: none;
+}
+
 #unityContainer {
   width: 90vw;
   height: 51vw;
 }
 
+@media only screen and (min-width: 300px) {
+  #coding-examples pre {
+    font-size: 10px;
+  }
+}
 @media only screen and (min-width: 380px) {
   .container {
     width: calc(380px - 30px);
@@ -464,7 +485,7 @@ a:hover {
 
   #fname-input,
 #lname-input {
-    width: calc(650px / 2 - 95px);
+    width: calc(650px / 2 - 90px);
   }
 
   .code-content {
@@ -472,19 +493,38 @@ a:hover {
     justify-content: center;
   }
 
+  #coding-examples {
+    padding-left: 15px;
+  }
   #coding-examples pre {
     margin: 0 15px;
     font-size: 16px;
     width: 420px;
-    overflow: visible;
   }
 
   .code-description {
     font-size: 20px;
     max-width: 420px;
+    padding-right: 20px;
   }
 }
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1050px) {
+  body p, body li {
+    text-align: left;
+  }
+
+  #scs li {
+    list-style: inside;
+  }
+  #scs p {
+    margin: 0 30px;
+  }
+
+  .about-me-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
   #container #main {
     border-left: 3px solid #7952B3;
     width: calc(100vw - 190px);
@@ -502,26 +542,20 @@ a:hover {
     display: none;
   }
 
-  .container,
-.about-me-container {
-    width: calc(992px - (50px + 190px));
+  .container {
+    width: calc(1050px - (50px + 190px));
   }
 
   .project-card {
-    width: calc((992px - (50px + 190px)) / 2 - 40px);
+    width: calc((1050px - (50px + 190px)) / 2 - 80px);
   }
 
   .project-thumbnail {
-    height: 200px;
+    height: 220px;
   }
 
   .about-me-container {
     margin: 0 auto;
-  }
-
-  .code-content {
-    display: flex;
-    justify-content: center;
   }
 
   #coding-examples pre,
@@ -536,21 +570,34 @@ a:hover {
 
   #fname-input,
 #lname-input {
-    width: calc((992px - 190px) / 2 - 97px);
+    width: calc((1050px - 190px) / 2 - 97px);
   }
 
   .code-description {
     max-width: 520px;
   }
 }
+@media only screen and (max-width: 1050px) {
+  #scs ul {
+    padding-left: 0;
+  }
+}
 @media only screen and (min-width: 1300px) {
+  #scs .scs-text {
+    display: flex;
+    justify-content: left;
+  }
+  #scs .scs-text:last-child {
+    flex-direction: row-reverse;
+  }
+  #scs .treehouse-profile {
+    margin-left: 60px;
+    text-align: left;
+  }
+
   #main-content {
     display: flex;
     flex-wrap: nowrap;
-  }
-
-  .project-card {
-    width: calc((1300px - (50px + 190px)) / 3 - 50px);
   }
 
   .container {
@@ -577,16 +624,21 @@ a:hover {
   }
 }
 @media only screen and (min-width: 1600px) {
+  #scs .treehouse-profile {
+    margin-left: 230px;
+  }
+
   .container {
     width: calc(1600px - 190px - 50px);
   }
 
-  .project-card {
-    width: calc((1600px - 190px) / 3 - 100px);
+  .project-card,
+.hover-description {
+    width: calc((1600px - 190px) / 3 - 50px);
   }
 
   .project-thumbnail {
-    height: 230px;
+    height: 280px;
   }
 
   pre {
@@ -625,6 +677,6 @@ a:hover {
 
   #coding-examples pre {
     font-size: 20px;
-    width: 550px;
+    width: 816px;
   }
 }/*# sourceMappingURL=style.css.map */

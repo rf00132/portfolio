@@ -5,7 +5,7 @@ $sidemenu-width: 190px;
 
 $first-breakpoint: 380px;
 $second-breakpoint: 650px;
-$third-breakpoint: 992px;
+$third-breakpoint: 1050px;
 $fourth-breakpoint: 1300px;
 $fifth-breakpoint: 1600px;
 
@@ -20,8 +20,23 @@ body{
     margin: 0;
     background-color: $main-colour;
     height: 100%;
+    text-align: center;
+    p, li{
+        text-align: center;
+    }
+    
 }
+
+#top{
+    position: absolute;
+    top:1px;
+    width: 1px;
+    height: 1px;
+}
+
 //sticky menu button
+
+
 
 .menu-btn-show{
     opacity: 1;
@@ -146,6 +161,7 @@ a:hover{
 #sidemenu{
     display: flex;
     flex-direction: column;
+    text-align: center;
     min-width: $sidemenu-width;
     margin-left: calc( -1 * #{$sidemenu-width});
     a:hover{
@@ -161,8 +177,6 @@ a:hover{
 .contact-link,
 .social-icons{
     border-top: 3px solid $accent-colour;
-
-    text-align: center;
     padding: 5px;
 }
 
@@ -245,12 +259,22 @@ a:hover{
     color: white;
     text-align: center;
     position: relative;
-    height: 100vh;
+    height: 300px;
     
 }
 
+header .hero-banner{
+    height: 100vh;
+}
+
 .banner-text{
+    padding-top: 110px;
+    padding-bottom: 110px;
     vertical-align: middle;
+}
+
+header .banner-text{
+    
     padding: calc(35vh) 0;
 }
 
@@ -356,14 +380,15 @@ a:hover{
     color: $main-colour;
     display:none;
     position: absolute;
-    bottom:100%;
+    top:100%;
     left: 0;
     right: 0;
-    text-align: center;
+
     border-radius: 10px;
     padding: 20px;
     min-width: 100px;
-    max-width: 330px;
+    max-width: 380px;
+    z-index: 10;
     margin: 0 auto 50px auto;
     h3{
         font-weight: normal;
@@ -383,25 +408,25 @@ a:hover{
 
 .arrow{
     position:absolute;
-    bottom: -40px;
-    left: 37%;
+    top: -35px;
+    left: 41%;
     margin-left: -36px;
-
-    
 }
+
+
 .arrow:after{
     content: "";
     margin: auto;
     display: inline-block;
-    border-color: $secondary-accent-colour transparent transparent;
+    border-color:  transparent transparent $secondary-accent-colour;
     border-style: solid;
-    border-width: 35px 36px 0;
+    border-width: 0 36px 36px;
 }
 
 //about me page styles
 
 .about-me-container{
-    text-align: center;
+    width: 100%;
 }
 
 .about-me-img{
@@ -416,30 +441,18 @@ a:hover{
 
 //coding examples page styles
 
-#coding-examples{
-    .hero-banner{
-        height: 300px;
-    }
 
-    .banner-text{
-        padding-top: 110px;
-        padding-bottom: 110px;
-    }
-
-    pre{
-        margin: 0 auto;
-        padding: 8px;
-        border-radius: 10px;
-        max-width: calc(100vw - 100px);
-        font-size: 10px;
-    }
-
-    
+#coding-examples pre{
+    margin: 0 auto;
+    padding: 8px;
+    border-radius: 10px;
+    max-width: calc(100vw - 100px);
+    font-size: 8px;
 }
+
 
 .code-title, 
 .code-description{
-    text-align: center;
     margin-left: auto;
     margin-right: auto;
 }
@@ -452,6 +465,14 @@ a:hover{
     }
 }
 
+//netmatters page
+
+#scs{
+
+    li{
+        list-style: none;
+    }
+}
 
 //tbrpg 
 
@@ -461,6 +482,11 @@ a:hover{
 }
 
 //Breakpoints
+@media only screen and (min-width: 300px){
+    #coding-examples pre{
+        font-size: 10px;
+    }
+}
 
 @media only screen and (min-width: $first-breakpoint){
 
@@ -535,27 +561,54 @@ a:hover{
     }
     #fname-input,
     #lname-input{
-        width: calc(#{$second-breakpoint} / 2 - 95px);
+        width: calc(#{$second-breakpoint} / 2 - 90px);
     }
+
     .code-content{
         display: flex;
         justify-content: center;
     }
 
-    #coding-examples pre{
-        margin: 0 15px;
-        font-size: 16px;
-        width:420px;
-        overflow: visible;
+    #coding-examples{
+        padding-left: 15px;
+        pre{
+            margin: 0 15px;
+            font-size: 16px;
+            width:420px;
+        }
     }
 
     .code-description{
         font-size: 20px;
         max-width: 420px;
+
+        padding-right: 20px;
     }
 }
 
 @media only screen and (min-width: $third-breakpoint){
+    
+    body{
+        p, li{
+            text-align: left;
+        }
+    }
+
+    #scs{
+        li{
+            list-style:inside;
+        }
+
+        p{
+            margin: 0 30px;
+        }
+    } 
+
+    .about-me-container{
+        display: flex;
+        justify-content: space-between;
+    }
+    
     //increase container width further
     #container{
         #main{
@@ -578,19 +631,18 @@ a:hover{
         display: none;
     }
 
-    .container,
-    .about-me-container{
+    .container{
         width:calc(#{$third-breakpoint} - (50px + #{$sidemenu-width}));
     }
 
     //homepage styles
 
     .project-card{
-        width: calc((#{$third-breakpoint} - (50px + #{$sidemenu-width})) / 2 - 40px);  
+        width: calc((#{$third-breakpoint} - (50px + #{$sidemenu-width})) / 2 - 80px);  
     }
 
     .project-thumbnail{
-        height: 200px;
+        height: 220px;
     }
     
     //about me styles
@@ -599,10 +651,6 @@ a:hover{
         margin: 0 auto;
     }
 
-    .code-content{
-        display: flex;
-        justify-content: center;
-    }
 
     #coding-examples pre,
     .code-description{
@@ -625,16 +673,37 @@ a:hover{
         max-width: 520px;
     }
 }
+
+@media only screen and (max-width: $third-breakpoint){
+    #scs{
+        ul{
+            padding-left: 0;
+        }
+    }
+}
 @media only screen and (min-width: $fourth-breakpoint){
+    
+    #scs{
+        .scs-text{
+            display: flex;
+            justify-content: left;
+            &:last-child{
+                flex-direction: row-reverse;
+            }
+        }
+        .treehouse-profile{
+            margin-left:60px;
+            text-align: left;
+        }
+    } 
+    
     #main-content{
         display: flex;
         flex-wrap: nowrap;
     }
 
 
-    .project-card{
-        width: calc((#{$fourth-breakpoint} - (50px + #{$sidemenu-width})) / 3 - 50px);  
-    }
+    
 
     .container{
         width:calc(#{$fourth-breakpoint} - #{$sidemenu-width} - 50px);
@@ -661,19 +730,29 @@ a:hover{
 }
 
 @media only screen and (min-width: $fifth-breakpoint){
+    #scs{
+       
+        .treehouse-profile{
+            margin-left: 230px;
+        
+        }
+    } 
+   
+   
     //increase container width again
 
+    
     .container{
         width:calc(#{$fifth-breakpoint} - #{$sidemenu-width} - 50px);
     }
 
-    .project-card{
-        
-        width: calc((#{$fifth-breakpoint} - #{$sidemenu-width}) / 3 - 100px);
+    .project-card,
+    .hover-description{
+        width: calc((#{$fifth-breakpoint} - #{$sidemenu-width}) / 3 - 50px);
     }
 
     .project-thumbnail{
-        height: 230px;
+        height: 280px;
     }
 
     pre{
@@ -714,6 +793,7 @@ a:hover{
 
     #coding-examples pre{
         font-size: 20px;
-        width:550px;
+        width: 816px;
     }
+
 }

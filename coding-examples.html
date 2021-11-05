@@ -35,27 +35,29 @@
                     </div>
                 </div>
             </nav>
+           
             <div id="main">
-                <div id="overlay"></div>
-                <header>
+                <div id="overlay" ></div>
+                <header id="header">
                     <button class="hamburger hamburger--vortex mobile-menu-button" type="button">
                         <span class="hamburger-box">
                             <span class="hamburger-inner"></span>
                         </span>
                     </button>
                     
+                    
+                    <script src="js/stickyMenu.js"></script>
+                    <script src="js/sidemenu.js"></script>
+                </header>
+                <main>
                     <div class="hero-banner text-shadow">
                         <div class="banner-text">
                             <h1>Coding Examples</h1>
                         </div>
                     </div>
-                    <script src="js/stickyMenu.js"></script>
-                    <script src="js/sidemenu.js"></script>
-                </header>
-                <main>
                     <div class="code-snippet-container">
                         <div class="code-snippet">
-                            <h2 class="code-title">Floor Generation for a Text Based Dungeon Crawler</h2>
+                            <h3 class="code-title">Floor Generation for a Text Based Dungeon Crawler</h3>
                             <div class="code-content">
                                 <pre><code class="language-c#">
 using UnityEngine;
@@ -69,48 +71,36 @@ public class World : MonoBehaviour
 
     private void Awake()
     {
-        Dungeon = new Room[
-            (int)Grid.x, (int)Grid.y
-        ];
+        Dungeon = new Room[(int)Grid.x, (int)Grid.y];
         GenerateFloor();
     }
 
     public void GenerateFloor()
     {
-        //generates room object for each spot 
-        //in the dungeon array
+        //generates room object for each spot in the dungeon array
         for (int x = 0; x < Grid.x; x++)
         {
             for (int y = 0; y < Grid.y; y++)
             {
-        //room constructor decides what kind of
-        //room is created and sets its location 
-                Dungeon[x, y] = new Room {
-                    RoomIndex = 
-                        new Vector2(x, y)
-                };
-                
+                //constructor decides what kind of
+                //room is created and sets its location 
+                Dungeon[x, y] = new Room { RoomIndex = new Vector2(x, y) };
             }
         }
         CreateExit();
 
-        //generates start location for the 
-        //player on the new floor
+        //generates start location for the player on the new floor
         player.NewFloor();
     }
 
-    // Picks random room in dungeon and calls a 
-    //method to set it as the exit
+    //Picks random room in dungeon and calls a method to set it as the exit
     private void CreateExit()
     {
         Vector2 exitLocation = new Vector2(
                 (int)Random.Range(0, Grid.x), 
                 (int)Random.Range(0, Grid.y)
             );
-        Room exit = Dungeon [
-            (int)exitLocation.x, 
-            (int)exitLocation.y
-        ];
+        Room exit = Dungeon [(int)exitLocation.x, (int)exitLocation.y];
         exit.SetExit();
     }
 
@@ -124,12 +114,12 @@ public class World : MonoBehaviour
                                     </p><p>
                                         It populates an Array of Rooms for each spot in the floor, picks a random room to be the exit then calls a method on the player to randomly sets it's position on the new floor.
                                     </p>
-                                    <a href="TextBasedRpg/text-based-rpg.html" target="blank">Click here to try it out</a>
+                                    <a href="text-based-rpg.html" target="blank">Click here to try it out</a>
                                 </div>
                             </div>
                         </div>
                         <div class="code-snippet">
-                            <h2 class="code-title">SQL Query Challenge</h2>
+                            <h3 class="code-title">SQL Query Challenge</h3>
                             <div class="code-content">
                                 <pre><code class="language-sql">
 SELECT mov_title 
@@ -180,7 +170,7 @@ AND movie.mov_time < (
                 </main>
                 <footer>
                     <div class="container">
-                        <a class="b2t-btn" href="#">
+                        <a class="b2t-btn" href="coding-examples.html#header">
                             <div><i class="fas fa-chevron-up"></i></div>
                             <div>
                                 Back To Top

@@ -27,14 +27,9 @@ function SetCurrentPoints(){
             console.error(err);
         } else {
             currentPoints = data.points.total;
-
-            console.log(currentPoints);
             pointsDisplay.innerText = 'Total Score: ' + currentPoints;
-            
-        }
-        
+        } 
     });
-    
 }
 
 SetCurrentPoints();

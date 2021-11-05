@@ -7,11 +7,6 @@ const submitButton = document.getElementById("submit-btn");
 const errorMessageContainer = document.getElementById("form-error-message");
 const emailRegex = /^\S+@\S+\.\S+$/;
 
-const ogBorderColour = fnameInput.style.borderColor;
-console.log(ogBorderColour);
-const borderErrorColor = "red";
-const errorMessage = "Please fix required fields."
-
 let validFname;
 let validLname;
 let validEmail;
@@ -19,18 +14,18 @@ let validSubject;
 let validMessage;
 
 function ValidateForm(event){
-    validFname = fnameInput.value.length > 0;
-    validLname = lnameInput.value.length > 0;
+    validFname = fnameInput.value.length > 0 && fnameInput.value != " ";
+    validLname = lnameInput.value.length > 0  && lnameInput.value != " ";
     validEmail = emailRegex.test(emailInput.value);
     validMessage = messageInput.value.length > 0;
 
     if(validFname && validLname && validEmail && validMessage){
         SetInputsValid();
-        console.log("happy happy form")
+
     }
     else{
         event.preventDefault();
-        console.log("very unhappy form")
+
         SetInputsValid();
         SetInputsInvalid();
     }
