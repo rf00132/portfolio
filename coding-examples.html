@@ -58,54 +58,59 @@
                     <div class="code-snippet-container">
                         <div class="code-snippet">
                             <h3 class="code-title">Floor Generation for a Text Based Dungeon Crawler</h3>
-                            <div class="code-content">
-                                <pre><code class="language-c#">
+                            <div class="thirdbp-flex-container">
+                                <div class="code-content">
+                                    <pre>
+                                        <code class="language-c#">
 using UnityEngine;
 
 public class World : MonoBehaviour
 {
-    public Room[,] Dungeon { get; set; }
-    public Vector2 Grid;
-    [SerializeField]
-    Player player;
+public Room[,] Dungeon { get; set; }
+public Vector2 Grid;
+[SerializeField]
+Player player;
 
-    private void Awake()
-    {
-        Dungeon = new Room[(int)Grid.x, (int)Grid.y];
-        GenerateFloor();
-    }
+private void Awake()
+{
+    Dungeon = new Room[(int)Grid.x, (int)Grid.y];
+    GenerateFloor();
+}
 
-    public void GenerateFloor()
+public void GenerateFloor()
+{
+    //generates room object for each spot in the dungeon array
+    for (int x = 0; x < Grid.x; x++)
     {
-        //generates room object for each spot in the dungeon array
-        for (int x = 0; x < Grid.x; x++)
+        for (int y = 0; y < Grid.y; y++)
         {
-            for (int y = 0; y < Grid.y; y++)
-            {
-                //constructor decides what kind of
-                //room is created and sets its location 
-                Dungeon[x, y] = new Room { RoomIndex = new Vector2(x, y) };
-            }
+            //constructor decides what kind of
+            //room is created and sets its location 
+            Dungeon[x, y] = new Room { RoomIndex = new Vector2(x, y) };
         }
-        CreateExit();
-
-        //generates start location for the player on the new floor
-        player.NewFloor();
     }
+    CreateExit();
 
-    //Picks random room in dungeon and calls a method to set it as the exit
-    private void CreateExit()
-    {
-        Vector2 exitLocation = new Vector2(
-                (int)Random.Range(0, Grid.x), 
-                (int)Random.Range(0, Grid.y)
-            );
-        Room exit = Dungeon [(int)exitLocation.x, (int)exitLocation.y];
-        exit.SetExit();
-    }
+    //generates start location for the player on the new floor
+    player.NewFloor();
+}
+
+//Picks random room in dungeon and calls a method to set it as the exit
+private void CreateExit()
+{
+    Vector2 exitLocation = new Vector2(
+            (int)Random.Range(0, Grid.x), 
+            (int)Random.Range(0, Grid.y)
+        );
+    Room exit = Dungeon [(int)exitLocation.x, (int)exitLocation.y];
+    exit.SetExit();
+}
 
 }                                
-                                </code></pre>
+                                        </code>
+                                    </pre>
+                                    
+                                </div>
                                 <div class="code-description">
                                     <p>
                                         This is some c# I wrote while working on a simple text based dungeon crawler.
@@ -118,10 +123,86 @@ public class World : MonoBehaviour
                                 </div>
                             </div>
                         </div>
+                        <div class="code-snippet-container">
+                            <div class="code-snippet">
+                                <h3 class="code-title">Room system for Text Based Dungeon crawler</h3>
+                                <div class="thirdbp-flex-container">
+                                    <div class="code-content">
+                                        <pre>
+                                            <code class="language-c#">
+
+namespace TextBasedRPG
+{
+    public class Room 
+    {
+        public Chest Chest { get; set; }
+        public Enemy Enemy { get; set; }
+        public bool Exit { get; set; }
+        public bool Empty { get; set; }
+        public Vector2 RoomIndex { get; set; }
+
+        //specific constructor for creating a room
+        public Room(Chest chest, Enemy enemy, bool empty, bool exit)
+        {
+            this.Chest = chest;
+            this.Enemy = enemy;
+            this.Empty = empty;
+            this.Exit = exit;
+        }
+
+        //paramaterless constructor randomly desides 
+        //what kind of room a new room will be
+        public Room()
+        {
+            int roll = Random.Range(0, 100);
+            if (roll < 10)
+            {
+                Enemy = EnemyDatabase.Instance.GetRandomEnemy();
+                Enemy.RoomIndex = RoomIndex;
+            }
+            else if (roll >= 90)
+            {
+                Chest = new Chest();
+            }
+            else
+            {
+                Empty = true;
+            }
+        }
+
+        //removes any potential paramaters set to the room and 
+        //changes it to an exit room
+        public void SetExit()
+        {
+            Chest = null;
+            Enemy = null;
+            Exit = true;
+            Empty = false;
+        }
+    }
+}
+                                        </code>
+                                    </pre>
+                                </div>
+                                
+                                <div class="code-description">
+                                    <p>
+                                        This is some more c# I wrote while working on a simple text based dungeon crawler.
+                                    </p><p>
+                                        This class is used to keep track of the contents of a room. 
+                                    </p><p>
+                                        it stores the chest or enemy objects, a bool that marks if the room is the exit and one that marks if it is an empty room.
+                                    </p>
+                                    <a href="text-based-rpg.html" target="blank">Click here to try it out</a>
+                                </div>
+                            </div>
+                        </div>
                         <div class="code-snippet">
                             <h3 class="code-title">SQL Query Challenge</h3>
-                            <div class="code-content">
-                                <pre><code class="language-sql">
+                            <div class="thirdbp-flex-container">
+                                <div class="code-content">
+                                    <pre>
+                                        <code class="language-c#">
 SELECT mov_title 
 AS "Movie", 
 mov_year 
@@ -151,7 +232,9 @@ AND movie.mov_time < (
     WHERE movie.mov_title = 
         'Slumdog Millionaire'
 )
-                                </code></pre>
+                                        </code>
+                                    </pre>
+                                </div>
                                 <div class="code-description">
                                     <p>
                                         The objective of this query was both to challenge myself and consolidate the knowledge I gained after learning SQL.

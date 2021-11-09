@@ -22,6 +22,10 @@ body p, body li {
   height: 1px;
 }
 
+.thirdbp-flex-container {
+  justify-content: center;
+}
+
 .menu-btn-show {
   opacity: 1;
 }
@@ -449,6 +453,10 @@ header .banner-text {
     width: calc(650px - 50px);
   }
 
+  .thirdbp-flex-container {
+    display: flex;
+  }
+
   .project-card {
     width: calc((650px - 50px) / 2 - 60px);
   }
@@ -493,23 +501,21 @@ header .banner-text {
     justify-content: center;
   }
 
-  #coding-examples {
-    padding-left: 15px;
-  }
   #coding-examples pre {
+    font-size: 14px;
+    width: 370px;
     margin: 0 15px;
-    font-size: 16px;
-    width: 420px;
   }
 
   .code-description {
-    font-size: 20px;
+    font-size: 16px;
     max-width: 420px;
+    margin: 0 15px;
     padding-right: 20px;
   }
 }
 @media only screen and (min-width: 1050px) {
-  body p, body li {
+  body p, body li, body h4 {
     text-align: left;
   }
 
@@ -558,6 +564,10 @@ header .banner-text {
     margin: 0 auto;
   }
 
+  .about-me-text {
+    margin-left: 30px;
+  }
+
   #coding-examples pre,
 .code-description {
     margin-left: 15px;
@@ -565,7 +575,7 @@ header .banner-text {
   }
 
   pre {
-    width: 400px;
+    width: 500px;
   }
 
   #fname-input,
@@ -573,8 +583,8 @@ header .banner-text {
     width: calc((1050px - 190px) / 2 - 97px);
   }
 
-  .code-description {
-    max-width: 520px;
+  #coding-examples pre {
+    width: 530px;
   }
 }
 @media only screen and (max-width: 1050px) {
@@ -595,18 +605,13 @@ header .banner-text {
     text-align: left;
   }
 
-  #main-content {
-    display: flex;
-    flex-wrap: nowrap;
-  }
-
   .container {
     width: calc(1300px - 190px - 50px);
   }
 
   .project-card-container {
-    margin-top: 65px;
-    width: calc(2 * (1300px - 190px) / 3 - 50px);
+    margin: 0 auto;
+    width: calc(2 * (1300px - 190px) / 3 + 65px);
   }
 
   .contact-info-section {
@@ -618,9 +623,12 @@ header .banner-text {
     width: calc((1300px - 190px) / 4 - 168px);
   }
 
-  #coding-examples pre {
-    font-size: 18px;
-    width: 520px;
+  .about-me-container {
+    justify-content: center;
+  }
+
+  .about-me-text {
+    width: 700px;
   }
 }
 @media only screen and (min-width: 1600px) {
@@ -651,8 +659,7 @@ header .banner-text {
   }
 
   .project-card-container {
-    margin-top: 65px;
-    width: calc(2 * (1600px - 190px) / 3 - 50px);
+    width: calc(2 * (1600px - 190px) / 3 + 50px);
   }
 
   .contact-info-section {
@@ -673,10 +680,5 @@ header .banner-text {
 #message-input, #submit-btn {
     margin-left: 5px;
     margin-right: 5px;
-  }
-
-  #coding-examples pre {
-    font-size: 20px;
-    width: 816px;
   }
 }/*# sourceMappingURL=style.css.map */
